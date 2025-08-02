@@ -1,0 +1,64 @@
+{
+  "MQTT": {
+   "WhiteList": {
+   "Topic": "sdc-whitelist",
+   "Qos": 0,
+   "Retained": false
+  },
+  "NonWhiteList": {
+    "Topic": "sdc-non-whitelist",
+    "Qos": 0,
+    "Retained": false
+   },
+   "Broker": "172.26.153.240:6533",
+   "Clientid": "",
+   "Username": "",
+   "Password": ""
+  },
+  "HttpServer": {
+    "ServerAddr": "localhost:8080",
+    "Method": "GET",
+    "HealthCheckURI": "/ping",
+    "WhiteListURI": "/setWhiteList"
+  },
+  "DataChanSize": 10000,
+  "WorkRoutines": 10,
+  "DecodeUdpRoutines": 10,
+  "DBC":{
+    "EmbedDBC": true,
+    "DBCPath":"./can.dbc",
+    "DBCExcel":"./can.xlsx"
+  },
+  "WhiteListFile": "./whitelist.json",
+  "LOG": {
+    "LogToFile": false,
+    "Format": "json",
+    "LogLevel": "warn"
+  },
+  "Filter": {
+    "IsFilterFrame": true,
+    "FilterInterval": 10,
+    "ResetMapInterval":600000
+  },
+  "CalcFrameRate": true,
+  "CalcFrameRateInterval":5,
+  "TEST": {
+    "TestMode": true,
+    "EnableWhiteList": true,
+    "PProf": {
+      "Addr": "localhost:6061",
+      "Timeout": 10
+    }
+  },
+  "DataSoure":{
+    "SdpeMode":false,
+    "SdpeEth": "/dev/sdpe-eth1",
+    "UdpServer":{
+      "Host":"localhost:7000",
+      "NumLoops":1,
+      "IdleTime":0,
+      "MetricsServer":"localhost:7001"
+    }
+  },
+  "SpecialCANs": [1335,1344,1345,1346,1347,1348,1349,1350,1537,1728,1729]
+}
